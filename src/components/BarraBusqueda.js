@@ -14,17 +14,13 @@ export default function BarraBusqueda({items,itemsSeleccionados}){
         setResultados(items);
     }
 
-    function handleItemsSeleccionados(){
-        
-    }
-
     return(
         <div>
             {resultados&&<div>{resultados.length}Results</div>}
-            <input type="text" onChange={handleChange} value={consulta}/>
+            <input type="text" onChange={handleChange} value={consulta} className="form-control" aria-labelledby="passwordHelpBlock" />
             <Resultados 
             items={items}
-            itemsSeleccionados={handleItemsSeleccionados}
+            itemsSeleccionados={itemsSeleccionados}
             consulta={consulta}
             resulCalculados={handleResults} />
         </div>
