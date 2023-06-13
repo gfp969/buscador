@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
+import MarcarItem from "./MarcarItem";
 
 export default function Resultados({items,itemsSeleccionados,consulta,resulCalculados}){
     const [resultados,setResultados]=useState([]);
@@ -19,7 +20,7 @@ export default function Resultados({items,itemsSeleccionados,consulta,resulCalcu
     return(
         <div>
             {consulta=!''?
-            filtroItems.map(item=><div>{item.title}</div>):''}
+            filtroItems.map(item=> <MarcarItem key={item.id} item={item} consulta={consulta} onClick={itemsSeleccionados} /> ):''}
         </div>
     )
 }
