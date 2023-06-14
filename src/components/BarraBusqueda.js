@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Resultados from "./Resultados";
-
+import './style.css';
+ 
 export default function BarraBusqueda({items,itemsSeleccionados}){
     const [consulta,setConsulta]=useState("");
     const [resultados,setResultados]=useState([]);
@@ -15,14 +16,14 @@ export default function BarraBusqueda({items,itemsSeleccionados}){
     }
 
     return(
-        <div>
-            {resultados&&<div>{resultados.length}Results</div>}
-            <input type="text" onChange={handleChange} value={consulta} className="form-control" aria-labelledby="passwordHelpBlock" />
+        <div className="container">
+            <input type="text" onChange={handleChange} value={consulta} placeholder="Search" className="form-control rounded"/>
             <Resultados 
-            items={items}
-            itemsSeleccionados={itemsSeleccionados}
-            consulta={consulta}
-            resulCalculados={handleResults} />
+                items={items}
+                itemsSeleccionados={itemsSeleccionados}
+                consulta={consulta}
+                resulCalculados={handleResults} />
+            {resultados&&<div>{resultados.length}Results</div>}
         </div>
     )
 }

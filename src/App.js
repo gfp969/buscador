@@ -89,30 +89,29 @@ function App() {
     }
   }
 
-  function handleItemsSeleccionados(item){
+  function handleItemsSeleccionados(item) {
     setSelection(item);
   }
 
   return (
     <div>
-      <div style={{ width: "200", height: "800" }}>
-        <h1></h1>
+      <div>
+        <BarraBusqueda items={data} itemsSeleccionados={handleItemsSeleccionados} />
       </div>
-
-      <BarraBusqueda items={data} itemsSeleccionados={handleItemsSeleccionados} />
-
-      <nav className="navbar bg-body-tertiary">
-        <form className="container-fluid">
-          <div className="input-group">
-            <button className="btn btn-success" onClick={handleClick} name="all">Todas</button>
-            <button className="btn btn-success" onClick={handleClick} name="people">Personas</button>
-            <button className="btn btn-success" onClick={handleClick} name="calendar">Calendario</button>
-            <button className="btn btn-success" onClick={handleClick} name="email">Asunto correo</button>
-            <button className="btn btn-success" onClick={() => { setCont(cont + 1) }}>{cont}</button>
+      <div className='container-fluid center'>
+        <nav className="navbar bg-body-tertiary">
+          <div className="container-fluid center">
+            <div className="input-group">
+              <button className="btn btn-success" onClick={handleClick} name="all">Todas</button>
+              <button className="btn btn-success" onClick={handleClick} name="people">Personas</button>
+              <button className="btn btn-success" onClick={handleClick} name="calendar">Calendario</button>
+              <button className="btn btn-success" onClick={handleClick} name="email">Asunto correo</button>
+              <button className="btn btn-success" onClick={() => { setCont(cont + 1) }}>{cont}</button>
+            </div>
           </div>
-        </form>
-      </nav>
-      {selection?<div> tu seleccionaste: {selection.title} </div>:""}
+        </nav>
+      </div>
+      {selection ? <div> tu seleccionaste: {selection.title} </div> : ""}
     </div>
   );
 }
